@@ -1,17 +1,720 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  </head>
-  <body>
-    <main>
-        <h1>Welcome to My Website</h1>  
-    </main>
-    <script src="index.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Arif, Ph.D. | AI for Health, NLP and Medical Imaging</title>
+  <meta name="description" content="Muhammad Arif, Ph.D., Postdoctoral Associate at the Data Mining Lab, Yale School of Medicine. Research in clinical NLP, large language models, mental-health informatics and medical imaging AI.">
+  <meta property="og:title" content="Muhammad Arif, Ph.D.">
+  <meta property="og:description" content="Clinical NLP, large language models, mental-health informatics and medical imaging AI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://marif561.github.io/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f2a4a'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-size='34' fill='%23f4efe6'%3EMA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f6f2ea;
+      --paper-2: #efe8dc;
+      --card: #fffdf8;
+      --ink: #14202e;
+      --ink-soft: #4a5868;
+      --line: #ddd3c3;
+      --accent: #0f4c81;
+      --accent-2: #c2562b;
+      --accent-wash: rgba(15, 76, 129, 0.08);
+      --shadow: 0 1px 2px rgba(20,32,46,.05), 0 8px 24px rgba(20,32,46,.06);
+      --serif: "Fraunces", Georgia, "Times New Roman", serif;
+      --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
+      --max: 1080px;
+    }
+    [data-theme="dark"] {
+      --paper: #0e151e;
+      --paper-2: #131c27;
+      --card: #16212d;
+      --ink: #e9e4da;
+      --ink-soft: #a3adb9;
+      --line: #263342;
+      --accent: #7fb2e5;
+      --accent-2: #f08a5d;
+      --accent-wash: rgba(127, 178, 229, 0.10);
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+      transition: background .3s, color .3s;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Nav ---------- */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(140%) blur(10px);
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      background: color-mix(in srgb, var(--paper) 82%, transparent);
+      border-bottom: 1px solid transparent;
+      transition: border-color .3s;
+    }
+    nav.scrolled { border-bottom-color: var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; color: var(--ink); letter-spacing: -.01em; }
+    .brand:hover { text-decoration: none; }
+    .brand span { color: var(--accent-2); }
+    .nav-links { display: flex; gap: 26px; align-items: center; list-style: none; }
+    .nav-links a { color: var(--ink-soft); font-size: .92rem; font-weight: 500; }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); text-decoration: none; }
+    .nav-links a.active { box-shadow: inset 0 -2px 0 var(--accent-2); }
+    .icon-btn {
+      background: none; border: 1px solid var(--line); color: var(--ink);
+      width: 36px; height: 36px; border-radius: 10px; cursor: pointer;
+      display: inline-grid; place-items: center; transition: background .2s;
+    }
+    .icon-btn:hover { background: var(--accent-wash); }
+    .menu-btn { display: none; }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 96px 0 72px; position: relative; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 56px; align-items: center; }
+    .eyebrow {
+      font-family: var(--mono); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent-2); margin-bottom: 18px; display: flex; align-items: center; gap: 10px;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+    h1 {
+      font-family: var(--serif); font-weight: 600; letter-spacing: -.025em;
+      font-size: clamp(2.6rem, 5.6vw, 4.2rem); line-height: 1.04; margin-bottom: 22px;
+    }
+    h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+    .lede { font-size: 1.15rem; color: var(--ink-soft); max-width: 36em; margin-bottom: 30px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 10px;
+      font-weight: 500; font-size: .95rem; border: 1px solid var(--line); color: var(--ink);
+      background: var(--card); transition: transform .15s, box-shadow .2s, border-color .2s;
+    }
+    .btn:hover { text-decoration: none; transform: translateY(-1px); box-shadow: var(--shadow); border-color: var(--accent); }
+    .btn.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .btn svg { width: 17px; height: 17px; }
+
+    .hero-card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .monogram {
+      width: 84px; height: 84px; border-radius: 22px; display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--accent), #0a2e52); color: #f6f2ea;
+      font-family: var(--serif); font-size: 2rem; font-weight: 600; margin-bottom: 18px;
+    }
+    .hero-card h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; margin-bottom: 2px; }
+    .hero-card .role { color: var(--ink-soft); font-size: .95rem; margin-bottom: 18px; }
+    .facts { list-style: none; display: grid; gap: 10px; font-size: .93rem; }
+    .facts li { display: flex; gap: 10px; align-items: flex-start; }
+    .facts svg { width: 17px; height: 17px; flex: none; margin-top: 4px; color: var(--accent); }
+
+    .net { position: absolute; inset: 0; z-index: -1; opacity: .5; pointer-events: none; }
+
+    /* ---------- Sections ---------- */
+    section { padding: 84px 0; }
+    section.alt { background: var(--paper-2); }
+    .sec-head { display: grid; grid-template-columns: 220px 1fr; gap: 40px; margin-bottom: 40px; align-items: baseline; }
+    .sec-num { font-family: var(--mono); font-size: .8rem; color: var(--accent-2); letter-spacing: .1em; }
+    h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.5rem); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; }
+    .sec-body { margin-left: 260px; }
+    .prose p { margin-bottom: 1.1em; max-width: 44em; }
+    .prose p:last-child { margin-bottom: 0; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 36px; }
+    .stat { border-top: 2px solid var(--ink); padding-top: 14px; }
+    .stat b { font-family: var(--serif); font-size: 2.2rem; font-weight: 600; display: block; line-height: 1.1; }
+    .stat span { font-size: .88rem; color: var(--ink-soft); }
+
+    /* research cards */
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+    .card .ic {
+      width: 42px; height: 42px; border-radius: 12px; background: var(--accent-wash); color: var(--accent);
+      display: grid; place-items: center; margin-bottom: 16px;
+    }
+    .card .ic svg { width: 22px; height: 22px; }
+    .card h3 { font-family: var(--serif); font-size: 1.18rem; font-weight: 600; margin-bottom: 8px; line-height: 1.3; }
+    .card p { font-size: .95rem; color: var(--ink-soft); }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .tag {
+      font-family: var(--mono); font-size: .72rem; padding: 3px 9px; border-radius: 999px;
+      border: 1px solid var(--line); color: var(--ink-soft); background: var(--paper);
+    }
+
+    /* timeline */
+    .timeline { position: relative; }
+    .tl-item { display: grid; grid-template-columns: 220px 1fr; gap: 40px; padding: 26px 0; border-top: 1px solid var(--line); }
+    .tl-item:last-child { border-bottom: 1px solid var(--line); }
+    .tl-when { font-family: var(--mono); font-size: .84rem; color: var(--ink-soft); padding-top: 4px; }
+    .tl-item h3 { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
+    .tl-org { color: var(--accent); font-weight: 500; font-size: .97rem; margin: 2px 0 10px; }
+    .tl-item ul { padding-left: 1.1em; color: var(--ink-soft); font-size: .97rem; }
+    .tl-item li { margin-bottom: 5px; }
+
+    /* projects */
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .chip {
+      font: 500 .86rem var(--sans); padding: 7px 14px; border-radius: 999px; cursor: pointer;
+      border: 1px solid var(--line); background: var(--card); color: var(--ink-soft); transition: all .2s;
+    }
+    .chip:hover { color: var(--ink); border-color: var(--ink-soft); }
+    .chip.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .proj { display: flex; flex-direction: column; }
+    .proj .kind { font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 10px; }
+    .proj.hide { display: none; }
+
+    /* teaching */
+    .courses { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .course { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+    .course code { font-family: var(--mono); font-size: .8rem; color: var(--accent); }
+    .course div { font-size: .92rem; color: var(--ink-soft); margin-top: 2px; }
+    .mentor-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+
+    /* contact */
+    .contact-box {
+      background: var(--ink); color: var(--paper); border-radius: 24px; padding: 56px;
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center;
+    }
+    .contact-box h2 { color: var(--paper); }
+    .contact-box p { color: color-mix(in srgb, var(--paper) 75%, transparent); margin-top: 12px; }
+    .links { display: grid; gap: 10px; }
+    .links a {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 14px 18px; border-radius: 12px; color: var(--paper);
+      border: 1px solid color-mix(in srgb, var(--paper) 20%, transparent); transition: background .2s;
+    }
+    .links a:hover { background: color-mix(in srgb, var(--paper) 10%, transparent); text-decoration: none; }
+    .links a span { display: flex; align-items: center; gap: 12px; font-weight: 500; }
+    .links svg { width: 19px; height: 19px; }
+    [data-theme="dark"] .contact-box { background: #1b2a3a; }
+    [data-theme="dark"] .contact-box h2, [data-theme="dark"] .links a { color: var(--ink); }
+
+    footer { padding: 40px 0 56px; font-size: .86rem; color: var(--ink-soft); }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+    /* reveal */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .hero { padding: 56px 0 48px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .sec-head, .tl-item { grid-template-columns: 1fr; gap: 8px; }
+      .sec-body { margin-left: 0; }
+      .grid-3, .courses { grid-template-columns: 1fr 1fr; }
+      .projects { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .contact-box { grid-template-columns: 1fr; padding: 36px 28px; }
+      .menu-btn { display: inline-grid; }
+      .nav-links {
+        position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0;
+        background: var(--paper); border-bottom: 1px solid var(--line); padding: 8px 24px 16px;
+        display: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 10px 0; font-size: 1rem; }
+      .nav-links a.active { box-shadow: none; color: var(--accent-2); }
+    }
+    @media (max-width: 560px) {
+      body { font-size: 16px; }
+      .grid-3, .courses { grid-template-columns: 1fr; }
+      section { padding: 64px 0; }
+    }
+    @media print {
+      nav, .net, .icon-btn, .filters { display: none !important; }
+      .reveal { opacity: 1; transform: none; }
+      section { padding: 28px 0; }
+      .contact-box { background: none; color: #000; border: 1px solid #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= NAV ================= -->
+  <nav id="nav">
+    <div class="wrap nav-inner">
+      <a href="#top" class="brand">Muhammad Arif<span>.</span></a>
+      <div style="display:flex;gap:10px;align-items:center">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#teaching">Teaching</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode">
+          <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+
+    <!-- ================= HERO ================= -->
+    <header class="hero">
+      <canvas class="net" id="net" aria-hidden="true"></canvas>
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">AI for Health · NLP · Medical Imaging</div>
+          <h1>Building language and vision models that <em>clinicians can trust.</em></h1>
+          <p class="lede">
+            I am a Postdoctoral Associate in the Data Mining Lab at Yale School of Medicine.
+            My work brings large language models, clinical NLP and medical imaging AI to
+            real problems in behavioral health and patient care, with a focus on robustness,
+            explainability and careful evaluation.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="https://scholar.google.com/citations?user=NUbu-DoAAAAJ" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6.8 9.6v3.6L12 20l6.8-3.8v-3.6L12 16.4l-6.8-3.8z"/></svg>
+              Google Scholar
+            </a>
+            <a class="btn" href="https://github.com/marif561" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.3 4.4 18.3 4.7 18.3 4.7c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
+              GitHub
+            </a>
+            <a class="btn" href="https://www.linkedin.com/in/muhammadarif1906" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal">
+          <div class="monogram">MA</div>
+          <h3>Muhammad Arif, Ph.D.</h3>
+          <div class="role">Postdoctoral Associate, Data Mining Lab</div>
+          <ul class="facts">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+              Yale School of Medicine, Dept. of Emergency Medicine
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>
+              Ph.D. in Computer Science
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              New Haven, USA
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              Open to research and faculty collaborations
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </header>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div class="sec-num">01 / ABOUT</div>
+          <h2>Data mining, language and images, in service of health.</h2>
+        </div>
+        <div class="sec-body prose reveal">
+          <p>
+            My research sits where natural language processing, social data mining and medical
+            imaging meet clinical need. At Yale I help build an LLM-based system for longitudinal
+            phenotyping of behavioral health from clinical records, where I lead the behavioral
+            ontology and annotation work that gives the models a reliable ground truth.
+          </p>
+          <p>
+            Across projects I care about the same questions: does a model transfer to a new domain,
+            where does it fail and for whom, and can its decisions be explained to the people who
+            rely on them? That has led to work on transformer transfer learning, domain adaptation,
+            subgroup-level failure analysis and explainable AI for mental-health detection,
+            radiology reporting and chest X-ray interpretation.
+          </p>
+          <p>
+            Before Yale I spent two years as adjunct faculty at Colorado State University Pueblo, where I
+            designed and taught six computing courses. I now also mentor a growing international
+            cohort of student research interns.
+          </p>
+          <div class="stats">
+            <div class="stat"><b data-count="98">0</b><span>% F1, state-of-the-art mental-illness detection</span></div>
+            <div class="stat"><b data-count="3">0</b><span>NIH proposals contributed at Yale</span></div>
+            <div class="stat"><b data-count="6">0</b><span>university courses designed and taught</span></div>
+            <div class="stat"><b data-count="8">0</b><span>institutions in the student mentoring network</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RESEARCH ================= -->
+    <section id="research" class="alt">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div class="sec-num">02 / RESEARCH</div>
+          <h2>Research areas</h2>
+        </div>
+        <div class="grid-3">
+          <article class="card reveal">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg></div>
+            <h3>Clinical NLP and Large Language Models</h3>
+            <p>LLM pipelines for clinical notes and patient-portal messages: phenotyping, information extraction, retrieval-augmented generation and prompt-based evaluation.</p>
+            <div class="tags"><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">EHR</span><span class="tag">Ontologies</span></div>
+          </article>
+          <article class="card reveal">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21C7 17 3 13.5 3 9a4.5 4.5 0 0 1 9-1 4.5 4.5 0 0 1 9 1c0 4.5-4 8-9 12z"/></svg></div>
+            <h3>Mental-Health Informatics</h3>
+            <p>Detecting depression, suicide risk and other mental-health signals in social and clinical text, with explainable predictions and multilingual benchmarks, including Spanish.</p>
+            <div class="tags"><span class="tag">Suicide risk</span><span class="tag">XAI</span><span class="tag">Social media</span></div>
+          </article>
+          <article class="card reveal">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div>
+            <h3>Medical Imaging and Multimodal AI</h3>
+            <p>Vision and vision-language models for radiology: chest X-ray interpretation, report impression generation, and fusing images with clinical text.</p>
+            <div class="tags"><span class="tag">ViT</span><span class="tag">VLMs</span><span class="tag">Radiology</span></div>
+          </article>
+          <article class="card reveal">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <h3>Robust and Trustworthy AI</h3>
+            <p>Transfer learning, domain adaptation and subgroup-asymmetric failure analysis, so models are evaluated for where they break, not only for their average score.</p>
+            <div class="tags"><span class="tag">Robustness</span><span class="tag">Fairness</span><span class="tag">Evaluation</span></div>
+          </article>
+          <article class="card reveal">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8 7.5l7.6.2M7.3 8.2l3.6 7.6M16.8 9.2l-3.6 6.8"/></svg></div>
+            <h3>Social Data Mining</h3>
+            <p>Large-scale text mining of online communities to study health behavior and language, with attention to label leakage and data quality.</p>
+            <div class="tags"><span class="tag">Reddit</span><span class="tag">Text mining</span><span class="tag">Clustering</span></div>
+          </article>
+          <article class="card reveal">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V6a2 2 0 0 1 2-2h12v15H6a2 2 0 0 0-2 2z"/><path d="M8 8h6M8 11h4"/></svg></div>
+            <h3>AI in Education</h3>
+            <p>Explainable language models for personalized learning and second-language education, and teaching applied machine learning to new practitioners.</p>
+            <div class="tags"><span class="tag">EdTech</span><span class="tag">XAI</span><span class="tag">Pedagogy</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section id="experience">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div class="sec-num">03 / EXPERIENCE</div>
+          <h2>Experience</h2>
+        </div>
+        <div class="timeline">
+          <div class="tl-item reveal">
+            <div class="tl-when">Current</div>
+            <div>
+              <h3>Postdoctoral Associate</h3>
+              <div class="tl-org">Data Mining Lab, Yale School of Medicine</div>
+              <ul>
+                <li>Develops an LLM-based behavioral-health copilot for longitudinal phenotyping of suicide and depression risk from clinical records.</li>
+                <li>Leads the behavioral ontology, annotation protocol and gold-standard dataset aim.</li>
+                <li>Contributed to five manuscript submissions and three NIH grant proposals in clinical and healthcare AI.</li>
+                <li>Works on de-identified patient-portal messages and clinical notes in secure research environments.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-when">2 years</div>
+            <div>
+              <h3>Adjunct Faculty, Computer Information Systems</h3>
+              <div class="tl-org">Colorado State University Pueblo</div>
+              <ul>
+                <li>Designed and was sole instructor for six undergraduate and graduate courses.</li>
+                <li>Built course materials spanning programming, data, systems and applied analytics.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-when">2026 to present</div>
+            <div>
+              <h3>Research Mentor</h3>
+              <div class="tl-org">International student research internship cohort</div>
+              <ul>
+                <li>Mentors student researchers on NLP, multimodal learning and benchmark projects, from problem framing to paper submission.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-when">Education</div>
+            <div>
+              <h3>Ph.D. in Computer Science</h3>
+              <div class="tl-org">Natural language processing and machine learning</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects" class="alt">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div class="sec-num">04 / SELECTED WORK</div>
+          <h2>Projects and publications</h2>
+        </div>
+        <div class="filters reveal" role="group" aria-label="Filter projects">
+          <button class="chip on" data-f="all">All</button>
+          <button class="chip" data-f="nlp">Clinical NLP</button>
+          <button class="chip" data-f="mh">Mental health</button>
+          <button class="chip" data-f="img">Imaging</button>
+          <button class="chip" data-f="edu">Education</button>
+        </div>
+        <div class="projects">
+          <article class="card proj reveal" data-cat="nlp mh">
+            <div class="kind">Grant-funded system · Yale</div>
+            <h3>LLM Behavioral-Health Copilot</h3>
+            <p>Longitudinal phenotyping of suicide and depression risk across clinical records, grounded in a purpose-built behavioral ontology and expert annotation.</p>
+            <div class="tags"><span class="tag">LLMs</span><span class="tag">Ontology</span><span class="tag">EHR</span></div>
+          </article>
+          <article class="card proj reveal" data-cat="mh">
+            <div class="kind">Challenge · IEEE BigData Cup 2026</div>
+            <h3>Explainable Suicide Risk Detection</h3>
+            <p>First-author challenge report on detecting suicide risk in online posts with explanations that point to the evidence behind each prediction.</p>
+            <div class="tags"><span class="tag">XAI</span><span class="tag">Transformers</span></div>
+          </article>
+          <article class="card proj reveal" data-cat="mh">
+            <div class="kind">Research result</div>
+            <h3>Mental-Illness Detection at 98% F1</h3>
+            <p>State-of-the-art classification of mental-health conditions from social media text, followed by work on label leakage when diagnostic terms are masked.</p>
+            <div class="tags"><span class="tag">Reddit</span><span class="tag">Classification</span></div>
+          </article>
+          <article class="card proj reveal" data-cat="img nlp">
+            <div class="kind">Manuscript in progress</div>
+            <h3>LLMs for Radiology Impression Generation</h3>
+            <p>A benchmark of large language models writing the impression section of radiology reports under zero-shot and few-shot prompting.</p>
+            <div class="tags"><span class="tag">Radiology</span><span class="tag">Prompting</span></div>
+          </article>
+          <article class="card proj reveal" data-cat="img">
+            <div class="kind">Paper</div>
+            <h3>Multimodal Explainable Chest X-ray Analysis</h3>
+            <p>Combining vision transformers with clinical-text encoders for chest X-ray interpretation, with explanation maps for both modalities.</p>
+            <div class="tags"><span class="tag">ViT</span><span class="tag">BERT</span><span class="tag">XAI</span></div>
+          </article>
+          <article class="card proj reveal" data-cat="nlp">
+            <div class="kind">Shared task · TREC RAG 2026</div>
+            <h3>Retrieval-Augmented Generation</h3>
+            <p>Participation with the Yale DM-Lab team in the TREC RAG track, studying retrieval and grounded answer generation.</p>
+            <div class="tags"><span class="tag">RAG</span><span class="tag">IR</span></div>
+          </article>
+          <article class="card proj reveal" data-cat="edu">
+            <div class="kind">Book chapter · Accepted</div>
+            <h3>Large-Scale Explainable Language Models for Personalized Education</h3>
+            <p>Emerging trends, challenges and future directions, in <i>Second Language Learning: Contemporary Research, Emerging AI Practices and Transformative Pedagogies</i>.</p>
+            <div class="tags"><span class="tag">Education</span><span class="tag">LLMs</span></div>
+          </article>
+          <article class="card proj reveal" data-cat="nlp">
+            <div class="kind">Review · AMIA 2026</div>
+            <h3>AMIA Year-in-Review Contribution</h3>
+            <p>Contributor to the Climate Health and Informatics Working Group review of the year's informatics literature.</p>
+            <div class="tags"><span class="tag">Informatics</span><span class="tag">Review</span></div>
+          </article>
+        </div>
+        <p class="reveal" style="margin-top:28px;color:var(--ink-soft);font-size:.95rem">
+          Full and up-to-date publication list on
+          <a href="https://scholar.google.com/citations?user=NUbu-DoAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= TEACHING ================= -->
+    <section id="teaching">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div class="sec-num">05 / TEACHING</div>
+          <h2>Teaching and mentoring</h2>
+        </div>
+        <div class="sec-body">
+          <p class="reveal" style="max-width:44em;margin-bottom:22px">
+            At Colorado State University Pueblo I designed every course I taught from the ground up and
+            was the sole instructor for each one.
+          </p>
+          <div class="courses reveal">
+            <div class="course"><code>CIS 120</code><div>Course designed and taught</div></div>
+            <div class="course"><code>CIS 150</code><div>Course designed and taught</div></div>
+            <div class="course"><code>CIS 240</code><div>Course designed and taught</div></div>
+            <div class="course"><code>CIS 250</code><div>Course designed and taught</div></div>
+            <div class="course"><code>CIS 289</code><div>Course designed and taught</div></div>
+            <div class="course"><code>CIS 450 / 550</code><div>Upper-division and graduate</div></div>
+          </div>
+          <h3 class="reveal" style="font-family:var(--serif);font-size:1.3rem;margin-top:44px">Student research mentoring</h3>
+          <p class="reveal" style="color:var(--ink-soft);max-width:44em;margin-top:6px">
+            Since 2026 I have mentored research interns from universities across three continents:
+          </p>
+          <div class="mentor-list reveal">
+            <span class="tag">King Khalid University</span>
+            <span class="tag">IPN Mexico</span>
+            <span class="tag">ENSIA</span>
+            <span class="tag">Santa Clara University</span>
+            <span class="tag">LUMS</span>
+            <span class="tag">MBZUAI</span>
+            <span class="tag">ENISo</span>
+            <span class="tag">IIT Kharagpur</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" style="padding-top:20px">
+      <div class="wrap">
+        <div class="contact-box reveal">
+          <div>
+            <h2>Let's work together.</h2>
+            <p>I am glad to talk about research collaborations, faculty and research positions, student mentoring, and invited talks on clinical AI and NLP.</p>
+          </div>
+          <div class="links">
+            <a href="https://scholar.google.com/citations?user=NUbu-DoAAAAJ" target="_blank" rel="noopener">
+              <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6.8 9.6v3.6L12 20l6.8-3.8v-3.6L12 16.4l-6.8-3.8z"/></svg>Google Scholar</span>→
+            </a>
+            <a href="https://www.linkedin.com/in/muhammadarif1906" target="_blank" rel="noopener">
+              <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>LinkedIn</span>→
+            </a>
+            <a href="https://github.com/marif561" target="_blank" rel="noopener">
+              <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.3 4.4 18.3 4.7 18.3 4.7c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>GitHub</span>→
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="yr"></span> Muhammad Arif · New Haven, USA</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // ---- Theme ----
+    const root = document.documentElement;
+    const themeIcon = document.getElementById('themeIcon');
+    const moon = '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';
+    const sun = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+    function setTheme(t) {
+      root.setAttribute('data-theme', t);
+      themeIcon.innerHTML = t === 'dark' ? sun : moon;
+      try { localStorage.setItem('theme', t); } catch (e) {}
+    }
+    let saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    setTheme(saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+    document.getElementById('themeBtn').onclick = () =>
+      setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+
+    // ---- Mobile menu ----
+    const links = document.getElementById('navLinks');
+    document.getElementById('menuBtn').onclick = () => links.classList.toggle('open');
+    links.querySelectorAll('a').forEach(a => a.onclick = () => links.classList.remove('open'));
+
+    // ---- Nav border + active link ----
+    const nav = document.getElementById('nav');
+    const sections = [...document.querySelectorAll('section[id]')];
+    const navAs = [...links.querySelectorAll('a')];
+    addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', scrollY > 10);
+      let cur = '';
+      sections.forEach(s => { if (scrollY + 120 >= s.offsetTop) cur = s.id; });
+      navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+    }, { passive: true });
+
+    // ---- Reveal + counters ----
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        e.target.querySelectorAll('[data-count]').forEach(el => {
+          const end = +el.dataset.count, t0 = performance.now(), dur = 1200;
+          const step = now => {
+            const p = Math.min((now - t0) / dur, 1);
+            el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
+            if (p < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        });
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // ---- Project filter ----
+    document.querySelectorAll('.chip').forEach(chip => chip.onclick = () => {
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
+      chip.classList.add('on');
+      const f = chip.dataset.f;
+      document.querySelectorAll('.proj').forEach(p =>
+        p.classList.toggle('hide', f !== 'all' && !p.dataset.cat.split(' ').includes(f)));
+    });
+
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // ---- Hero network animation (subtle) ----
+    const cv = document.getElementById('net'), ctx = cv.getContext('2d');
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let pts = [], W, H;
+    function size() {
+      const r = cv.parentElement.getBoundingClientRect(), d = devicePixelRatio || 1;
+      W = r.width; H = r.height; cv.width = W * d; cv.height = H * d;
+      cv.style.width = W + 'px'; cv.style.height = H + 'px'; ctx.setTransform(d, 0, 0, d, 0, 0);
+      const n = Math.min(60, Math.floor(W * H / 16000));
+      pts = Array.from({ length: n }, () => ({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25
+      }));
+    }
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      const c = getComputedStyle(root).getPropertyValue('--accent').trim();
+      ctx.fillStyle = c; ctx.strokeStyle = c;
+      for (const p of pts) {
+        if (!reduce) { p.x += p.vx; p.y += p.vy; }
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+      }
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y, d = Math.hypot(dx, dy);
+          if (d < 130) {
+            ctx.globalAlpha = (1 - d / 130) * .18;
+            ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y); ctx.stroke();
+          }
+        }
+        ctx.globalAlpha = .35;
+        ctx.beginPath(); ctx.arc(pts[i].x, pts[i].y, 1.8, 0, 7); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      if (!reduce) requestAnimationFrame(draw);
+    }
+    addEventListener('resize', size);
+    size(); draw();
+  </script>
+</body>
 </html>
