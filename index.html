@@ -1,872 +1,284 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-<script>document.documentElement.className="js";</script>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammad Arif, Ph.D. | AI Evaluation, Digital Mental Health and NLP</title>
-  <meta name="description" content="Muhammad Arif, Ph.D., Postdoctoral Associate at Yale School of Medicine. Research on AI evaluation, digital mental health, clinical NLP, large language models and multimodal AI.">
+  <meta name="color-scheme" content="light dark">
+  <title>Muhammad Arif, Ph.D.</title>
+  <meta name="description" content="Muhammad Arif, Postdoctoral Associate at Yale School of Medicine. AI evaluation, digital mental health, clinical NLP and large language models.">
   <meta property="og:title" content="Muhammad Arif, Ph.D.">
-  <meta property="og:description" content="Clinical NLP, large language models, mental-health informatics and medical imaging AI.">
+  <meta property="og:description" content="Muhammad Arif, Postdoctoral Associate at Yale School of Medicine. AI evaluation, digital mental health, clinical NLP and large language models.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://marif561.github.io/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f2a4a'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-size='34' fill='%23f4efe6'%3EMA%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%230f4c81'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-size='28' fill='%23fff'%3EMA%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --paper: #f6f2ea;
-      --paper-2: #efe8dc;
-      --card: #fffdf8;
-      --ink: #14202e;
-      --ink-soft: #4a5868;
-      --line: #ddd3c3;
-      --accent: #0f4c81;
-      --accent-2: #c2562b;
-      --accent-wash: rgba(15, 76, 129, 0.08);
-      --shadow: 0 1px 2px rgba(20,32,46,.05), 0 8px 24px rgba(20,32,46,.06);
-      --serif: "Fraunces", Georgia, "Times New Roman", serif;
-      --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-      --mono: "JetBrains Mono", ui-monospace, monospace;
-      --max: 1080px;
-    }
-    [data-theme="dark"] {
-      --paper: #0e151e;
-      --paper-2: #131c27;
-      --card: #16212d;
-      --ink: #e9e4da;
-      --ink-soft: #a3adb9;
-      --line: #263342;
-      --accent: #7fb2e5;
-      --accent-2: #f08a5d;
-      --accent-wash: rgba(127, 178, 229, 0.10);
-      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-    body {
-      font-family: var(--sans);
-      background: var(--paper);
-      color: var(--ink);
-      line-height: 1.65;
-      font-size: 17px;
-      -webkit-font-smoothing: antialiased;
-      transition: background .3s, color .3s;
-    }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; text-underline-offset: 3px; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-
-    /* ---------- Nav ---------- */
-    nav {
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: saturate(140%) blur(10px);
-      -webkit-backdrop-filter: saturate(140%) blur(10px);
-      background: color-mix(in srgb, var(--paper) 82%, transparent);
-      border-bottom: 1px solid transparent;
-      transition: border-color .3s;
-    }
-    nav.scrolled { border-bottom-color: var(--line); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .brand { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; color: var(--ink); letter-spacing: -.01em; }
-    .brand:hover { text-decoration: none; }
-    .brand span { color: var(--accent-2); }
-    .nav-links { display: flex; gap: 26px; align-items: center; list-style: none; }
-    .nav-links a { color: var(--ink-soft); font-size: .92rem; font-weight: 500; }
-    .nav-links a:hover, .nav-links a.active { color: var(--ink); text-decoration: none; }
-    .nav-links a.active { box-shadow: inset 0 -2px 0 var(--accent-2); }
-    .icon-btn {
-      background: none; border: 1px solid var(--line); color: var(--ink);
-      width: 36px; height: 36px; border-radius: 10px; cursor: pointer;
-      display: inline-grid; place-items: center; transition: background .2s;
-    }
-    .icon-btn:hover { background: var(--accent-wash); }
-    .menu-btn { display: none; }
-
-    /* ---------- Hero ---------- */
-    .hero { padding: 96px 0 72px; position: relative; overflow: hidden; }
-    .hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 56px; align-items: center; }
-    .eyebrow {
-      font-family: var(--mono); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--accent-2); margin-bottom: 18px; display: flex; align-items: center; gap: 10px;
-    }
-    .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
-    h1 {
-      font-family: var(--serif); font-weight: 600; letter-spacing: -.025em;
-      font-size: clamp(2.6rem, 5.6vw, 4.2rem); line-height: 1.04; margin-bottom: 22px;
-    }
-    h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
-    .lede { font-size: 1.15rem; color: var(--ink-soft); max-width: 36em; margin-bottom: 30px; }
-    .cta { display: flex; flex-wrap: wrap; gap: 12px; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 10px;
-      font-weight: 500; font-size: .95rem; border: 1px solid var(--line); color: var(--ink);
-      background: var(--card); transition: transform .15s, box-shadow .2s, border-color .2s;
-    }
-    .btn:hover { text-decoration: none; transform: translateY(-1px); box-shadow: var(--shadow); border-color: var(--accent); }
-    .btn.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-    .btn svg { width: 17px; height: 17px; }
-
-    .profiles { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .profiles a { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; color: var(--ink-soft); border: 1px solid var(--line); transition: all .2s; }
-    .profiles a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; transform: translateY(-1px); }
-    .profiles svg { width: 18px; height: 18px; }
-    .hero-card {
-      background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px;
-      box-shadow: var(--shadow); position: relative;
-    }
-    .monogram {
-      width: 84px; height: 84px; border-radius: 22px; display: grid; place-items: center;
-      background: linear-gradient(135deg, var(--accent), #0a2e52); color: #f6f2ea;
-      font-family: var(--serif); font-size: 2rem; font-weight: 600; margin-bottom: 18px;
-    }
-    .hero-card h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; margin-bottom: 2px; }
-    .hero-card .role { color: var(--ink-soft); font-size: .95rem; margin-bottom: 18px; }
-    .facts { list-style: none; display: grid; gap: 10px; font-size: .93rem; }
-    .facts li { display: flex; gap: 10px; align-items: flex-start; }
-    .facts svg { width: 17px; height: 17px; flex: none; margin-top: 4px; color: var(--accent); }
-
-    .net { position: absolute; inset: 0; z-index: -1; opacity: .5; pointer-events: none; }
-
-    /* ---------- Sections ---------- */
-    section { padding: 84px 0; }
-    section.alt { background: var(--paper-2); }
-    .sec-head { display: grid; grid-template-columns: 220px 1fr; gap: 40px; margin-bottom: 40px; align-items: baseline; }
-    .sec-num { font-family: var(--mono); font-size: .8rem; color: var(--accent-2); letter-spacing: .1em; }
-    h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.5rem); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; }
-    .sec-body { margin-left: 260px; }
-    .prose p { margin-bottom: 1.1em; max-width: 44em; }
-    .prose p:last-child { margin-bottom: 0; }
-
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 36px; }
-    .stat { border-top: 2px solid var(--ink); padding-top: 14px; }
-    .stat b { font-family: var(--serif); font-size: 2.2rem; font-weight: 600; display: block; line-height: 1.1; }
-    .stat span { font-size: .88rem; color: var(--ink-soft); }
-
-    /* research cards */
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .card {
-      background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px;
-      transition: transform .2s, box-shadow .2s, border-color .2s;
-    }
-    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
-    .card .ic {
-      width: 42px; height: 42px; border-radius: 12px; background: var(--accent-wash); color: var(--accent);
-      display: grid; place-items: center; margin-bottom: 16px;
-    }
-    .card .ic svg { width: 22px; height: 22px; }
-    .card h3 { font-family: var(--serif); font-size: 1.18rem; font-weight: 600; margin-bottom: 8px; line-height: 1.3; }
-    .card p { font-size: .95rem; color: var(--ink-soft); }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-    .tag {
-      font-family: var(--mono); font-size: .72rem; padding: 3px 9px; border-radius: 999px;
-      border: 1px solid var(--line); color: var(--ink-soft); background: var(--paper);
-    }
-
-    /* timeline */
-    .timeline { position: relative; }
-    .tl-item { display: grid; grid-template-columns: 220px 1fr; gap: 40px; padding: 26px 0; border-top: 1px solid var(--line); }
-    .tl-item:last-child { border-bottom: 1px solid var(--line); }
-    .tl-when { font-family: var(--mono); font-size: .84rem; color: var(--ink-soft); padding-top: 4px; }
-    .tl-item h3 { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
-    .tl-org { color: var(--accent); font-weight: 500; font-size: .97rem; margin: 2px 0 10px; }
-    .tl-item ul { padding-left: 1.1em; color: var(--ink-soft); font-size: .97rem; }
-    .tl-item li { margin-bottom: 5px; }
-
-    /* projects */
-    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-    .chip {
-      font: 500 .86rem var(--sans); padding: 7px 14px; border-radius: 999px; cursor: pointer;
-      border: 1px solid var(--line); background: var(--card); color: var(--ink-soft); transition: all .2s;
-    }
-    .chip:hover { color: var(--ink); border-color: var(--ink-soft); }
-    .chip.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .proj { display: flex; flex-direction: column; }
-    .proj .kind { font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 10px; }
-    .proj.hide { display: none; }
-
-    /* teaching */
-    .courses { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .course { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
-    .course code { font-family: var(--mono); font-size: .8rem; color: var(--accent); }
-    .course div { font-size: .92rem; color: var(--ink-soft); margin-top: 2px; }
-    .mentor-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-
-    /* contact */
-    .contact-box {
-      background: var(--ink); color: var(--paper); border-radius: 24px; padding: 56px;
-      display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center;
-    }
-    .contact-box h2 { color: var(--paper); }
-    .contact-box p { color: color-mix(in srgb, var(--paper) 75%, transparent); margin-top: 12px; }
-    .links { display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
-    .links a:first-child, .links a:last-child { grid-column: 1 / -1; }
-    @media (max-width: 560px) { .links { grid-template-columns: 1fr; } }
-    .links a {
-      display: flex; align-items: center; justify-content: space-between; gap: 12px;
-      padding: 14px 18px; border-radius: 12px; color: var(--paper);
-      border: 1px solid color-mix(in srgb, var(--paper) 20%, transparent); transition: background .2s;
-    }
-    .links a:hover { background: color-mix(in srgb, var(--paper) 10%, transparent); text-decoration: none; }
-    .links a span { display: flex; align-items: center; gap: 12px; font-weight: 500; }
-    .links svg { width: 19px; height: 19px; }
-    [data-theme="dark"] .contact-box { background: #1b2a3a; }
-    [data-theme="dark"] .contact-box h2, [data-theme="dark"] .links a { color: var(--ink); }
-
-    footer { padding: 40px 0 56px; font-size: .86rem; color: var(--ink-soft); }
-    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-
-    /* reveal */
-    .reveal { transition: opacity .7s ease, transform .7s ease; }
-    /* publications */
-    .pub-list { list-style: none; counter-reset: pub; }
-    .pub {
-      display: grid; grid-template-columns: 70px 1fr; gap: 20px; padding: 18px 0;
-      border-top: 1px solid var(--line); font-size: .96rem;
-    }
-    .pub:last-child { border-bottom: 1px solid var(--line); }
-    .pub .yr { font-family: var(--mono); font-size: .82rem; color: var(--ink-soft); padding-top: 2px; }
-    .pub .t { font-family: var(--serif); font-size: 1.07rem; font-weight: 600; line-height: 1.35; color: var(--ink); }
-    .pub .a { color: var(--ink-soft); margin-top: 3px; }
-    .pub .a b { color: var(--ink); font-weight: 600; }
-    .pub .v { font-style: italic; color: var(--ink-soft); }
-    .pub .badge { font-family: var(--mono); font-size: .68rem; padding: 2px 8px; border-radius: 999px; margin-left: 6px; vertical-align: 2px;
-      background: var(--accent-wash); color: var(--accent); font-style: normal; }
-    .pub.hide { display: none; }
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .mini-list { list-style: none; }
-    .mini-list li { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); font-size: .94rem; }
-    .mini-list li:first-child { border-top: none; }
-    .mini-list .when { font-family: var(--mono); font-size: .8rem; color: var(--ink-soft); padding-top: 2px; }
-    .course p { font-size: .9rem; color: var(--ink-soft); margin-top: 6px; }
-    .course .term { font-family: var(--mono); font-size: .72rem; color: var(--accent-2); float: right; }
-    .course h4 { font-family: var(--serif); font-size: 1.02rem; font-weight: 600; margin-top: 2px; line-height: 1.3; }
-    .course h4 a { color: var(--ink); }
-    @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } .pub { grid-template-columns: 1fr; gap: 4px; } }
-    .js .reveal { opacity: 0; transform: translateY(16px); }
-    .js .reveal.in { opacity: 1; transform: none; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .js .reveal { opacity: 1; transform: none; transition: none; }
-      html { scroll-behavior: auto; }
-    }
-
-    /* ---------- Responsive ---------- */
-    @media (max-width: 900px) {
-      .hero { padding: 56px 0 48px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
-      .sec-head, .tl-item { grid-template-columns: 1fr; gap: 8px; }
-      .sec-body { margin-left: 0; }
-      .grid-3, .courses { grid-template-columns: 1fr 1fr; }
-      .projects { grid-template-columns: 1fr; }
-      .stats { grid-template-columns: 1fr 1fr; }
-      .contact-box { grid-template-columns: 1fr; padding: 36px 28px; }
-      .menu-btn { display: inline-grid; }
-      .nav-links {
-        position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0;
-        background: var(--paper); border-bottom: 1px solid var(--line); padding: 8px 24px 16px;
-        display: none;
-      }
-      .nav-links.open { display: flex; }
-      .nav-links li { width: 100%; }
-      .nav-links a { display: block; padding: 10px 0; font-size: 1rem; }
-      .nav-links a.active { box-shadow: none; color: var(--accent-2); }
-    }
-    @media (max-width: 560px) {
-      body { font-size: 16px; }
-      .grid-3, .courses { grid-template-columns: 1fr; }
-      section { padding: 64px 0; }
-    }
-    @media print {
-      nav, .net, .icon-btn, .filters { display: none !important; }
-      .reveal { opacity: 1; transform: none; }
-      section { padding: 28px 0; }
-      .contact-box { background: none; color: #000; border: 1px solid #ccc; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Muhammad Arif","honorificSuffix":"Ph.D.",
    "jobTitle":"Postdoctoral Associate","affiliation":{"@type":"Organization","name":"Yale School of Medicine"},
    "alumniOf":[{"@type":"CollegeOrUniversity","name":"Instituto Politécnico Nacional"},{"@type":"CollegeOrUniversity","name":"Wuhan University"}],
    "email":"mailto:arifmuhmmand@gmail.com","url":"https://marif561.github.io/",
-   "sameAs":["https://scholar.google.com/citations?user=NUbu-DoAAAAJ","https://openreview.net/profile?id=~Muhammad_Arif2","https://github.com/marif561","https://huggingface.co/HiArif2026","https://x.com/arif_24561","https://www.linkedin.com/in/muhammadarif1906/","https://orcid.org/0000-0001-6141-0204"]}
+   "sameAs":["https://scholar.google.com/citations?user=NUbu-DoAAAAJ","https://openreview.net/profile?id=~Muhammad_Arif2","https://orcid.org/0000-0001-6141-0204","https://github.com/marif561","https://huggingface.co/HiArif2026","https://x.com/arif_24561","https://www.linkedin.com/in/muhammadarif1906/"]}
   </script>
 </head>
 <body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="home" href="./">Muhammad Arif</a>
+    <nav aria-label="Main">
+      <a href="publications.html">Publications</a>
+      <a href="./#research">Research</a>
+      <a href="./#teaching">Teaching</a>
+      <a href="./#experience">Experience</a>
+      <button id="theme" class="theme" type="button" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </header>
+  <main id="content">
 
-  <!-- ================= NAV ================= -->
-  <nav id="nav">
-    <div class="wrap nav-inner">
-      <a href="#top" class="brand">Muhammad Arif<span>.</span></a>
-      <div style="display:flex;gap:10px;align-items:center">
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#about">About</a></li>
-          <li><a href="#research">Research</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#publications">Publications</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#teaching">Teaching</a></li>
-          <li><a href="#contact">Contact</a></li>
+    <section class="profile">
+      <div class="portrait" aria-hidden="true">MA</div>
+      <div>
+        <h1>Muhammad Arif</h1>
+        <p class="affil">Postdoctoral Associate, <a href="https://medicine.yale.edu/" target="_blank" rel="noopener">Yale School of Medicine</a></p>
+        <p class="loc">New Haven, CT, USA</p>
+        <ul class="links">
+          <li><a href="mailto:arifmuhmmand@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></a> <span class="handle">arifmuhmmand@gmail.com</span></li>
+          <li><a href="https://scholar.google.com/citations?user=NUbu-DoAAAAJ" target="_blank" rel="noopener me"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6.8 9.6v3.6L12 20l6.8-3.8v-3.6L12 16.4l-6.8-3.8z"/></svg><span>Google Scholar</span></a></li>
+          <li><a href="https://openreview.net/profile?id=~Muhammad_Arif2" target="_blank" rel="noopener me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg><span>OpenReview</span></a></li>
+          <li><a href="https://orcid.org/0000-0001-6141-0204" target="_blank" rel="noopener me"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22zM8.2 17.3H6.8V7.9h1.4v9.4zM7.5 6.9a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8zm3.1 10.4V7.9h3.6c3.4 0 4.9 2.4 4.9 4.7 0 2.5-2 4.7-4.9 4.7h-3.6zm1.4-1.3h2.1c2.6 0 3.5-1.9 3.5-3.4 0-2.4-1.5-3.4-3.6-3.4h-2v6.8z"/></svg><span>ORCID</span></a></li>
+          <li><a href="https://github.com/marif561" target="_blank" rel="noopener me"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.3 4.4 18.3 4.7 18.3 4.7c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span>GitHub</span></a></li>
+          <li><a href="https://huggingface.co/HiArif2026" target="_blank" rel="noopener me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M8.5 14.5c1.8 2 5.2 2 7 0"/></svg><span>Hugging Face</span></a></li>
+          <li><a href="https://x.com/arif_24561" target="_blank" rel="noopener me"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg><span>X</span></a> <span class="handle">@arif_24561</span></li>
+          <li><a href="https://www.linkedin.com/in/muhammadarif1906/" target="_blank" rel="noopener me"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg><span>LinkedIn</span></a></li>
         </ul>
-        <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode">
-          <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-        </button>
-        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <main id="top">
-
-    <!-- ================= HERO ================= -->
-    <header class="hero">
-      <canvas class="net" id="net" aria-hidden="true"></canvas>
-      <div class="wrap hero-grid">
-        <div class="reveal">
-          <div class="eyebrow">AI Evaluation · Digital Mental Health · NLP</div>
-          <h1>Building and evaluating AI that <em>clinicians and patients can trust.</em></h1>
-          <p class="lede">
-            I am a Postdoctoral Associate at Yale School of Medicine. My research asks how
-            large language models and multimodal AI actually perform when they meet real
-            patients, real clinicians and vulnerable users, and how to measure that reliably,
-            across languages and cultures.
-          </p>
-          <div class="cta">
-            <a class="btn primary" href="mailto:arifmuhmmand@gmail.com">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-              Email me
-            </a>
-            <a class="btn" href="https://scholar.google.com/citations?user=NUbu-DoAAAAJ" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6.8 9.6v3.6L12 20l6.8-3.8v-3.6L12 16.4l-6.8-3.8z"/></svg>
-              Google Scholar
-            </a>
-          </div>
-          <div class="profiles"><a href="https://github.com/marif561" target="_blank" rel="noopener me" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.3 4.4 18.3 4.7 18.3 4.7c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg></a><a href="https://www.linkedin.com/in/muhammadarif1906" target="_blank" rel="noopener me" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></a><a href="https://openreview.net/profile?id=~Muhammad_Arif2" target="_blank" rel="noopener me" aria-label="OpenReview" title="OpenReview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></a><a href="https://huggingface.co/HiArif2026" target="_blank" rel="noopener me" aria-label="Hugging Face" title="Hugging Face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M8.5 14.5c1.8 2 5.2 2 7 0"/></svg></a><a href="https://x.com/arif_24561" target="_blank" rel="noopener me" aria-label="X (@arif_24561)" title="X (@arif_24561)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a><a href="https://orcid.org/0000-0001-6141-0204" target="_blank" rel="noopener me" aria-label="ORCID" title="ORCID"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22zM8.2 17.3H6.8V7.9h1.4v9.4zM7.5 6.9a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8zm3.1 10.4V7.9h3.6c3.4 0 4.9 2.4 4.9 4.7 0 2.5-2 4.7-4.9 4.7h-3.6zm1.4-1.3h2.1c2.6 0 3.5-1.9 3.5-3.4 0-2.4-1.5-3.4-3.6-3.4h-2v6.8z"/></svg></a></div>
-        </div>
-
-        <aside class="hero-card reveal">
-          <div class="monogram">MA</div>
-          <h3>Muhammad Arif, Ph.D.</h3>
-          <div class="role">Postdoctoral Associate, Yale School of Medicine</div>
-          <ul class="facts">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
-              Department of Emergency Medicine, Yale University
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>
-              Ph.D. in Computer Science with Distinction, CIC, Instituto Politécnico Nacional, Mexico
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-              New Haven, USA
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-              <a href="mailto:arifmuhmmand@gmail.com">arifmuhmmand@gmail.com</a>
-            </li>
-          </ul>
-        </aside>
-      </div>
-    </header>
-
-    <!-- ================= ABOUT ================= -->
-    <section id="about">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <div class="sec-num">01 / ABOUT</div>
-          <h2>Language as evidence, AI as an intervention to be measured.</h2>
-        </div>
-        <div class="sec-body prose reveal">
-          <p>
-            At Yale School of Medicine I work with Dr. Samah Fodeh-Jarad on machine learning and
-            LLM methods for secure patient–clinician messages (the PVminer and EPPC-Care projects),
-            on a behavioral ontology and annotation framework for longitudinal phenotyping, and on
-            NIH grant development in digital mental health and AI safety. I train foundation and
-            transformer models, apply preference optimization to structured information
-            extraction, and build retrieval-augmented LLM applications.
-          </p>
-          <p>
-            My broader agenda treats AI systems the way intervention science treats a new
-            treatment: define the constructs, validate the measures, design the evaluation and
-            test whether results hold up. That has led to work on label leakage in mental-illness
-            classification, LLM benchmarks for depression and suicidal ideation in Spanish,
-            explainable multimodal models for autism screening and emotion recognition, and LLMs
-            for radiology reporting.
-          </p>
-          <p>
-            I earned my Ph.D. in Computer Science with a perfect 10.00/10.00 CGPA at the Centro de
-            Investigación en Computación (CIC), Instituto Politécnico Nacional, Mexico, under
-            Prof. Alexander Gelbukh and Prof. Grigori Sidorov. Before Yale I was an Adjunct
-            Professor at Colorado State University Pueblo, where I designed and taught six courses.
-          </p>
-          <div class="stats">
-            <div class="stat"><b><span data-count="20">0</span>+</b><span>peer-reviewed publications</span></div>
-            <div class="stat"><b data-count="3">0</b><span>NIH proposals under review</span></div>
-            <div class="stat"><b data-count="6">0</b><span>university courses designed and taught</span></div>
-            <div class="stat"><b data-count="8">0</b><span>institutions in the student mentoring network</span></div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- ================= RESEARCH ================= -->
-    <section id="research" class="alt">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <div class="sec-num">02 / RESEARCH</div>
-          <h2>Research areas</h2>
-        </div>
-        <div class="grid-3">
-          <article class="card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
-            <h3>AI Evaluation in Real-World Use</h3>
-            <p>Frameworks and metrics for how AI interventions perform in behavioral, digital mental health and EdTech products: fidelity, efficacy and outcome measurement.</p>
-            <div class="tags"><span class="tag">Benchmarks</span><span class="tag">LLM-as-Judge</span><span class="tag">Study design</span></div>
-          </article>
-          <article class="card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21C7 17 3 13.5 3 9a4.5 4.5 0 0 1 9-1 4.5 4.5 0 0 1 9 1c0 4.5-4 8-9 12z"/></svg></div>
-            <h3>Digital Mental Health and AI Safety</h3>
-            <p>Detecting depression and suicidal ideation, and designing risk detection and safety escalation for human–AI interaction with vulnerable users.</p>
-            <div class="tags"><span class="tag">Suicide risk</span><span class="tag">Safety</span><span class="tag">Escalation</span></div>
-          </article>
-          <article class="card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg></div>
-            <h3>Clinical NLP and Large Language Models</h3>
-            <p>LLMs over patient–clinician messages and EHR data: structured extraction with preference optimization, RAG, ontologies and annotation frameworks.</p>
-            <div class="tags"><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">EHR</span><span class="tag">LoRA</span></div>
-          </article>
-          <article class="card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div>
-            <h3>Multimodal and Explainable AI</h3>
-            <p>Models that jointly read MRI/CT, EEG, images, audio and clinical reports, with SHAP and Grad-CAM explanations for neuropsychiatry, autism screening and radiology.</p>
-            <div class="tags"><span class="tag">Neuroimaging</span><span class="tag">XAI</span><span class="tag">Radiology</span></div>
-          </article>
-          <article class="card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 3.5 6 3.5 9s-1 6-3.5 9c-2.5-3-3.5-6-3.5-9s1-6 3.5-9z"/></svg></div>
-            <h3>Multilingual and Cross-Cultural NLP</h3>
-            <p>Mental health, social support, hope speech and misinformation across languages, including Spanish-speaking populations and low-resource languages.</p>
-            <div class="tags"><span class="tag">Spanish</span><span class="tag">Cross-lingual</span><span class="tag">XLM-R</span></div>
-          </article>
-          <article class="card reveal">
-            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V6a2 2 0 0 1 2-2h12v15H6a2 2 0 0 0-2 2z"/><path d="M8 8h6M8 11h4"/></svg></div>
-            <h3>AI in Education</h3>
-            <p>Explainable language models for personalized education and NLP for educational texts, informed by years of classroom teaching.</p>
-            <div class="tags"><span class="tag">EdTech</span><span class="tag">NER</span><span class="tag">XAI</span></div>
-          </article>
-        </div>
-      </div>
+    <section class="bio">
+      <p>
+        I am a Postdoctoral Associate in the Department of Emergency Medicine at Yale School of Medicine,
+        working with Dr. Samah Fodeh-Jarad.
+        My research is on <b>evaluating AI in real-world health use</b>: how large language models and multimodal
+        systems perform with real patients, clinicians and vulnerable users, and how to measure that reliably.
+        I work on digital mental health and AI safety, NLP for secure patient–clinician messages
+        (the PVminer and EPPC-Care projects), measurement and annotation frameworks, and multilingual
+        mental-health benchmarks, including for Spanish-speaking populations.
+      </p>
+      <p>
+        I received my Ph.D. in Computer Science with Distinction from the
+        <a href="https://www.cic.ipn.mx/" target="_blank" rel="noopener">Centro de Investigación en Computación (CIC)</a>,
+        Instituto Politécnico Nacional, Mexico, advised by Prof. Alexander Gelbukh and Prof. Grigori Sidorov,
+        with a thesis on multi-class and cross-lingual fake news detection. I hold an M.Eng. in Geographic
+        Information Systems from Wuhan University. Before Yale, I was an Adjunct Professor of Computer Science
+        at Colorado State University Pueblo, and a research intern at Penn State Abington and research scholar
+        at the University of Colorado, Colorado Springs.
+      </p>
+      <p class="note">I am open to research collaborations and faculty and research positions. Feel free to <a href="mailto:arifmuhmmand@gmail.com">reach out</a>.</p>
     </section>
 
-    <!-- ================= PROJECTS ================= -->
-    <section id="projects">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <div class="sec-num">03 / CURRENT WORK</div>
-          <h2>Current projects</h2>
-        </div>
-        <div class="filters reveal" role="group" aria-label="Filter projects">
-          <button class="chip on" data-f="all">All</button>
-          <button class="chip" data-f="nlp">Clinical NLP</button>
-          <button class="chip" data-f="mh">Mental health</button>
-          <button class="chip" data-f="mm">Multimodal</button>
-        </div>
-        <div class="projects">
-          <article class="card proj reveal" data-cat="nlp">
-            <div class="kind">Yale · PVminer and EPPC-Care</div>
-            <h3>Mining Secure Patient–Clinician Messages</h3>
-            <p>NLP and LLM methods that characterize communication behaviors on both sides of the patient–clinician relationship, including ontology-aware extraction and a bidirectional content analysis.</p>
-            <div class="tags"><span class="tag">EPPC-OASIS</span><span class="tag">TAB-PO</span><span class="tag">JAMIA, under review</span></div>
-          </article>
-          <article class="card proj reveal" data-cat="nlp mh">
-            <div class="kind">Yale · Behavioral ontology</div>
-            <h3>Longitudinal Behavioral Phenotyping</h3>
-            <p>A behavioral ontology and annotation framework, informed by community and patient experience, that defines constructs and guidelines for reliable measurement over time.</p>
-            <div class="tags"><span class="tag">Ontology</span><span class="tag">Annotation</span><span class="tag">Measurement</span></div>
-          </article>
-          <article class="card proj reveal" data-cat="mh">
-            <div class="kind">AI safety</div>
-            <h3>Safeguarding Human–LLM Interaction</h3>
-            <p>A simulation-driven framework for detecting and mitigating AI-induced psychosis risk in conversations between LLMs and vulnerable users.</p>
-            <div class="tags"><span class="tag">Simulation</span><span class="tag">Risk detection</span></div>
-          </article>
-          <article class="card proj reveal" data-cat="mh nlp">
-            <div class="kind">Spanish mental health benchmarks</div>
-            <h3>When Language Limits AI</h3>
-            <p>Benchmarking LLMs on depression and suicidal-ideation detection in clinically grounded Spanish doctor–patient interactions, alongside PiscoBench for Spanish mental-health QA.</p>
-            <div class="tags"><span class="tag">Spanish</span><span class="tag">LLM benchmarks</span></div>
-          </article>
-          <article class="card proj reveal" data-cat="mh">
-            <div class="kind">Evaluation methodology</div>
-            <h3>Label Leakage in Mental-Illness Classification</h3>
-            <p>How much do diagnostic words in social media posts inflate deep learning performance? A raw versus masked text analysis.</p>
-            <div class="tags"><span class="tag">Reddit</span><span class="tag">Label leakage</span></div>
-          </article>
-          <article class="card proj reveal" data-cat="mm">
-            <div class="kind">Multimodal XAI</div>
-            <h3>Explainable Autism and Emotion Models</h3>
-            <p>MEXA, a multimodal explainable model for autism spectrum disorder screening, and transformer-based trimodal emotion recognition from text, audio and images.</p>
-            <div class="tags"><span class="tag">SHAP</span><span class="tag">Grad-CAM</span><span class="tag">Trimodal</span></div>
-          </article>
-          <article class="card proj reveal" data-cat="mm nlp">
-            <div class="kind">Radiology</div>
-            <h3>LLMs for Radiology Impression Generation</h3>
-            <p>Evaluating large language models that write the impression section of radiology reports, under zero-shot and few-shot prompting.</p>
-            <div class="tags"><span class="tag">Radiology</span><span class="tag">Prompting</span></div>
-          </article>
-          <article class="card proj reveal" data-cat="mm">
-            <div class="kind">Computational neuropsychiatry</div>
-            <h3>Multimodal Neuropsychiatry Models</h3>
-            <p>Models that jointly analyze MRI/CT neuroimaging, EEG signals and clinical and radiology reports to characterize complex neuropsychiatric disorders with clinical investigators.</p>
-            <div class="tags"><span class="tag">MRI/CT</span><span class="tag">EEG</span><span class="tag">Reports</span></div>
-          </article>
-        </div>
-      </div>
+    <section>
+      <h2>News</h2>
+      <ul class="news">
+      <li><span class="yr">2026</span> Two papers on multilingual social support detection at <b>IberLEF 2026</b>, including our SSD-2026 shared task system.</li>
+      <li><span class="yr">2026</span> Named entity recognition in educational texts accepted in <b>Scientific Reports</b>.</li>
+      <li><span class="yr">2026</span> Serving on the Program Committee of the <b>AAAI-27 Undergraduate Consortium</b> and the <b>IEEE ICDM 2026</b> Workshop on Data Mining in Biomedical Informatics and Healthcare.</li>
+      <li><span class="yr">2026</span> Reviewing for <b>EMNLP 2026</b> and <b>IEEE ICASSP</b>.</li>
+      <li><span class="yr">2026</span> Book chapter on explainable language models for personalized education accepted.</li>
+      <li><span class="yr">2026</span> Preprints <a href="https://arxiv.org/abs/2605.24172" target="_blank" rel="noopener">EPPC-OASIS</a> and <a href="https://arxiv.org/abs/2603.00025" target="_blank" rel="noopener">TAB-PO</a> on mining secure patient–provider messages are out.</li>
+      <li><span class="yr">2026</span> Joined <b>Yale School of Medicine</b> as a Postdoctoral Associate (April).</li>
+      <li><span class="yr">2026</span> Two papers at <b>ACLing 2025</b>, on interpretable sarcasm detection and LLM personalization, published in Procedia Computer Science.</li>
+      <li><span class="yr">2025</span> Defended my Ph.D. in Computer Science at CIC, Instituto Politécnico Nacional, with <b>Distinction (CGPA 10.00/10.00)</b>.</li>
+      <li><span class="yr">2025</span> Two papers at <b>IEEE CISS 2025</b>.</li>
+      </ul>
+      <details class="earlier">
+        <summary><b>Earlier news</b></summary>
+        <ul class="news">
+      <li><span class="yr">2024</span> Hope speech paper published in <b>Scientific Reports</b>.</li>
+      <li><span class="yr">2024</span> Mental illness classification paper published in <b>Computación y Sistemas</b> (now 100+ citations).</li>
+      <li><span class="yr">2024</span> Started as Adjunct Professor at <b>Colorado State University Pueblo</b>.</li>
+      <li><span class="yr">2023</span> Edge computing paper at <b>IEEE ISCAS 2023</b>.</li>
+      <li><span class="yr">2022</span> CIC at <b>CheckThat! 2022</b> (CLEF) on multi-class and cross-lingual fake news detection.</li>
+        </ul>
+      </details>
     </section>
 
-    <!-- ================= PUBLICATIONS ================= -->
-    <section id="publications" class="alt">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <div class="sec-num">04 / PUBLICATIONS</div>
-          <h2>Selected publications</h2>
-        </div>
-        <div class="filters reveal" role="group" aria-label="Filter publications">
-          <button class="chip pchip on" data-f="all">All</button>
-          <button class="chip pchip" data-f="j">Journals</button>
-          <button class="chip pchip" data-f="c">Conferences</button>
-          <button class="chip pchip" data-f="p">Preprints and chapters</button>
-        </div>
-        <ol class="pub-list reveal">
-          <li class="pub" data-t="c"><div class="yr">2026</div><div><div class="t">SSD-2026 Shared Task: Multilingual Social Support Detection and Community Identification Using XLM-RoBERTa</div><div class="a"><b>Arif, M.</b>, Zamir, M. T., Fodeh, S., &amp; Shahiki Tash, M. <span class="v">IberLEF 2026, CEUR Workshop Proceedings, Vol. 4273.</span></div></div></li>
-          <li class="pub" data-t="j"><div class="yr">2026</div><div><div class="t">Named Entity Recognition (NER) in Educational Texts Using Transformer Models with X (formerly Twitter)</div><div class="a">Ullah, F., Ahmad, M., Zamir, M. T., <b>Arif, M.</b>, Sidorov, G., Riverón, E. M. F., &amp; Gelbukh, A. <span class="v">Scientific Reports.</span></div></div></li>
-          <li class="pub" data-t="c"><div class="yr">2026</div><div><div class="t">From Word Pairs to Context: Interpretable Sarcasm Detection via Contextual Collocation Augmentation (C2A)</div><div class="a">Abiola, T. O., <b>Arif, M.</b>, Ojo, O. E., et al. <span class="v">Procedia Computer Science, 275, 447–454 (ACLing 2025).</span></div></div></li>
-          <li class="pub" data-t="c"><div class="yr">2026</div><div><div class="t">From Clusters to Characters: USERPRINT for Cross-Dataset Transfer in LLM Personalization</div><div class="a">Abiola, T. O., <b>Arif, M.</b>, &amp; Calvo, H. <span class="v">Procedia Computer Science, 275 (ACLing 2025).</span></div></div></li>
-          <li class="pub" data-t="p"><div class="yr">2026</div><div><div class="t">EPPC-OASIS: Ontology-Aware Adaptation and Structured Inference Refinement for Electronic Patient-Provider Communication Mining in Secure Messages</div><div class="a">Fodeh, S., Ramachandran, S., Irankhah, E., <b>Arif, M.</b>, et al. <span class="v">arXiv:2605.24172.</span></div></div></li>
-          <li class="pub" data-t="p"><div class="yr">2026</div><div><div class="t">TAB-PO: Preference Optimization with a Token-Level Adaptive Barrier for Token-Critical Structured Generation</div><div class="a">Fodeh, S., Ma, L., Puthiaraju, G., et al. <span class="v">arXiv:2603.00025.</span></div></div></li>
-          <li class="pub" data-t="p"><div class="yr">2026</div><div><div class="t">Large-Scale Explainable Language Models for Personalized Education: Emerging Trends, Challenges, and Future Directions</div><div class="a"><span class="v">Book chapter in Second Language Learning: Contemporary Research, Emerging AI Practices and Transformative Pedagogies.</span><span class="badge">Accepted</span></div></div></li>
-          <li class="pub" data-t="c"><div class="yr">2025</div><div><div class="t">Synthetic Time Series Data Generation for Healthcare Applications: A PCG Case Study</div><div class="a">Jamshidi, A., <b>Arif, M.</b>, Kalhoro, S. A., &amp; Gelbukh, A. <span class="v">59th Annual Conference on Information Sciences and Systems (CISS), IEEE.</span></div></div></li>
-          <li class="pub" data-t="c"><div class="yr">2025</div><div><div class="t">Revolutionizing Fake News Detection: A Quantum Machine Learning Paradigm</div><div class="a">Jamshidi, A., &amp; <b>Arif, M.</b> <span class="v">59th Annual Conference on Information Sciences and Systems (CISS), IEEE.</span></div></div></li>
-          <li class="pub" data-t="j"><div class="yr">2024</div><div><div class="t">Analyzing Hope Speech from Psycholinguistic and Emotional Perspectives</div><div class="a"><b>Arif, M.</b>, Shahiki Tash, M., Jamshidi, A., Ullah, F., Ameer, I., Kalita, J., Gelbukh, A., et al. <span class="v">Scientific Reports, 14(1), 23548.</span></div></div></li>
-          <li class="pub" data-t="j"><div class="yr">2024</div><div><div class="t">Mental Illness Classification on Social Media Texts Using Deep Learning and Transfer Learning</div><div class="a"><b>Arif, M.</b>, Ameer, I., Bölücü, N., Sidorov, G., Gelbukh, A., &amp; Elangovan, V. <span class="v">Computación y Sistemas, 28(2), 451–464.</span><span class="badge">100+ citations</span></div></div></li>
-          <li class="pub" data-t="j"><div class="yr">2024</div><div><div class="t">Machine and Deep Learning Algorithms for Sentiment Analysis During COVID-19: A Vision to Create Fake News Resistant Society</div><div class="a">Zamir, M. T., Ullah, F., Tariq, R., Bangyal, W. H., <b>Arif, M.</b>, &amp; Gelbukh, A. <span class="v">PLoS ONE, 19(12), e0315407.</span></div></div></li>
-          <li class="pub" data-t="c"><div class="yr">2024</div><div><div class="t">Identification of Fake Users in Mobile Communication Using Sentiment Analysis Techniques</div><div class="a"><b>Arif, M.</b>, Jamshidi, A., Ullah, F., Zamir, M. T., Gelbukh, A., &amp; Sidorov, G. <span class="v">Mexican International Conference on Artificial Intelligence (MICAI), Springer, 196–210.</span></div></div></li>
-          <li class="pub" data-t="c"><div class="yr">2024</div><div><div class="t">Improving Traffic Surveillance: Deep Learning Approach for Road Anomaly Detection in Videos</div><div class="a">Natha, S., <b>Arif, M.</b>, Jamil, S. S., Jokhio, F. A., &amp; Syed, M. J. <span class="v">IEEE 3rd International Conference on Computing and Machine Intelligence (ICMI).</span></div></div></li>
-          <li class="pub" data-t="c"><div class="yr">2023</div><div><div class="t">Edge Computing-based Adaptive Machine Learning Model for Dynamic IoT Environment</div><div class="a"><b>Arif, M.</b>, &amp; Perera, D. G. <span class="v">IEEE International Symposium on Circuits and Systems (ISCAS).</span></div></div></li>
-          <li class="pub" data-t="c"><div class="yr">2022</div><div><div class="t">CIC at CheckThat!-2022: Multi-class and Cross-lingual Fake News Detection</div><div class="a"><b>Arif, M.</b>, Tonja, A. L., Ameer, I., Kolesnikova, O., Gelbukh, A. F., Sidorov, G., &amp; Meque, A. G. M. <span class="v">CLEF 2022 Working Notes, 434–443.</span></div></div></li>
-          <li class="pub" data-t="c"><div class="yr">2022</div><div><div class="t">Improving Neural Machine Translation for Low Resource Languages Using Mixed Training: The Case of Ethiopian Languages</div><div class="a">Tonja, A. L., Kolesnikova, O., <b>Arif, M.</b>, Gelbukh, A., &amp; Sidorov, G. <span class="v">MICAI 2022, Springer, 30–40.</span></div></div></li>
-          <li class="pub" data-t="j"><div class="yr">2021</div><div><div class="t">Monitoring Subsidence in Urban Area by PSInSAR: A Case Study of Abbottabad City, Northern Pakistan</div><div class="a">Khan, R., Li, H., Afzal, Z., Basir, M., <b>Arif, M.</b>, &amp; Hassan, W. <span class="v">Remote Sensing, 13(9), 1651.</span></div></div></li>
-        </ol>
-        <p class="reveal" style="margin-top:24px;color:var(--ink-soft);font-size:.95rem">
-          Full and up-to-date list, including manuscripts under review, on
-          <a href="https://scholar.google.com/citations?user=NUbu-DoAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.
-        </p>
-      </div>
+    <section>
+      <h2>Selected publications</h2>
+      <ul class="pubs">
+      <li class="pub" data-t="c">
+        <div class="pub-title">SSD-2026 Shared Task: Multilingual Social Support Detection and Community Identification Using XLM-RoBERTa</div>
+        <div class="pub-authors"><b>Arif, M.</b>, Zamir, M. T., Fodeh, S., &amp; Shahiki Tash, M.</div>
+        <div class="pub-venue"><span class="venue-tag">IberLEF 2026</span> IberLEF 2026, CEUR Workshop Proceedings, Vol. 4273</div>
+        <div class="pub-links"><a href="https://scholar.google.com/scholar?q=SSD-2026+Shared+Task:+Multilingual+Social+Support+Detection+and+Community+Identification+Using+XLM-RoBERTa" target="_blank" rel="noopener">Scholar</a> · <button class="bib-btn" type="button" aria-expanded="false">BibTeX</button></div>
+        <pre class="bib" hidden>@inproceedings{arif2026ssd,
+  title = {SSD-2026 Shared Task: Multilingual Social Support Detection and Community Identification Using XLM-RoBERTa},
+  author = {Arif, M. and Zamir, M. T. and Fodeh, S. and Shahiki Tash, M.},
+  booktitle = {IberLEF 2026, CEUR Workshop Proceedings, Vol. 4273},
+  year = {2026}
+}</pre>
+      </li>
+      <li class="pub" data-t="j">
+        <div class="pub-title">Named Entity Recognition (NER) in Educational Texts Using Transformer Models with X (formerly Twitter)</div>
+        <div class="pub-authors">Ullah, F., Ahmad, M., Zamir, M. T., <b>Arif, M.</b>, Sidorov, G., Riverón, E. M. F., &amp; Gelbukh, A.</div>
+        <div class="pub-venue"><span class="venue-tag">Scientific Reports 2026</span> Scientific Reports</div>
+        <div class="pub-links"><a href="https://arxiv.org/abs/2504.18142" target="_blank" rel="noopener">Preprint</a> · <a href="https://scholar.google.com/scholar?q=Named+Entity+Recognition+(NER)+in+Educational+Texts+Using+Transformer+Models+with+X+(formerly+Twitter)" target="_blank" rel="noopener">Scholar</a> · <button class="bib-btn" type="button" aria-expanded="false">BibTeX</button></div>
+        <pre class="bib" hidden>@article{ullah2026ner,
+  title = {Named Entity Recognition (NER) in Educational Texts Using Transformer Models with X (formerly Twitter)},
+  author = {Ullah, F. and Ahmad, M. and Zamir, M. T. and Arif, M. and Sidorov, G. and Riverón, E. M. F. and Gelbukh, A.},
+  journal = {Scientific Reports},
+  year = {2026},
+  eprint = {2504.18142}, archivePrefix = {arXiv}
+}</pre>
+      </li>
+      <li class="pub" data-t="p">
+        <div class="pub-title">EPPC-OASIS: Ontology-Aware Adaptation and Structured Inference Refinement for Electronic Patient-Provider Communication Mining in Secure Messages</div>
+        <div class="pub-authors">Fodeh, S., Ramachandran, S., Irankhah, E., <b>Arif, M.</b>, Khan, A., Puthiaraju, G., et al.</div>
+        <div class="pub-venue"><span class="venue-tag">arXiv 2026</span> arXiv preprint arXiv:2605.24172</div>
+        <div class="pub-links"><a href="https://arxiv.org/abs/2605.24172" target="_blank" rel="noopener">Preprint</a> · <a href="https://scholar.google.com/scholar?q=EPPC-OASIS:+Ontology-Aware+Adaptation+and+Structured+Inference+Refinement+for+Electronic+Patient-Provider+Communication+Mining+in+Secure+Messages" target="_blank" rel="noopener">Scholar</a> · <button class="bib-btn" type="button" aria-expanded="false">BibTeX</button></div>
+        <pre class="bib" hidden>@misc{fodeh2026oasis,
+  title = {EPPC-OASIS: Ontology-Aware Adaptation and Structured Inference Refinement for Electronic Patient-Provider Communication Mining in Secure Messages},
+  author = {Fodeh, S. and Ramachandran, S. and Irankhah, E. and Arif, M. and Khan, A. and Puthiaraju, G. and others},
+  howpublished = {arXiv preprint arXiv:2605.24172},
+  year = {2026},
+  eprint = {2605.24172}, archivePrefix = {arXiv}
+}</pre>
+      </li>
+      <li class="pub" data-t="j">
+        <div class="pub-title">Analyzing Hope Speech from Psycholinguistic and Emotional Perspectives</div>
+        <div class="pub-authors"><b>Arif, M.</b>, Shahiki Tash, M., Jamshidi, A., Ullah, F., Ameer, I., Kalita, J., Gelbukh, A., et al.</div>
+        <div class="pub-venue"><span class="venue-tag">Scientific Reports 2024</span> Scientific Reports, 14(1), 23548</div>
+        <div class="pub-links"><a href="https://scholar.google.com/scholar?q=Analyzing+Hope+Speech+from+Psycholinguistic+and+Emotional+Perspectives" target="_blank" rel="noopener">Scholar</a> · <button class="bib-btn" type="button" aria-expanded="false">BibTeX</button></div>
+        <pre class="bib" hidden>@article{arif2024hope,
+  title = {Analyzing Hope Speech from Psycholinguistic and Emotional Perspectives},
+  author = {Arif, M. and Shahiki Tash, M. and Jamshidi, A. and Ullah, F. and Ameer, I. and Kalita, J. and Gelbukh, A. and others},
+  journal = {Scientific Reports, 14(1), 23548},
+  year = {2024}
+}</pre>
+      </li>
+      <li class="pub" data-t="j">
+        <div class="pub-title">Mental Illness Classification on Social Media Texts Using Deep Learning and Transfer Learning</div>
+        <div class="pub-authors"><b>Arif, M.</b>, Ameer, I., Bölücü, N., Sidorov, G., Gelbukh, A., &amp; Elangovan, V.</div>
+        <div class="pub-venue"><span class="venue-tag">Computación y Sistemas 2024</span> Computación y Sistemas, 28(2), 451–464 <span class="star">★ 100+ citations</span></div>
+        <div class="pub-links"><a href="https://arxiv.org/abs/2207.01012" target="_blank" rel="noopener">Preprint</a> · <a href="https://scholar.google.com/scholar?q=Mental+Illness+Classification+on+Social+Media+Texts+Using+Deep+Learning+and+Transfer+Learning" target="_blank" rel="noopener">Scholar</a> · <button class="bib-btn" type="button" aria-expanded="false">BibTeX</button></div>
+        <pre class="bib" hidden>@article{arif2024mental,
+  title = {Mental Illness Classification on Social Media Texts Using Deep Learning and Transfer Learning},
+  author = {Arif, M. and Ameer, I. and Bölücü, N. and Sidorov, G. and Gelbukh, A. and Elangovan, V.},
+  journal = {Computación y Sistemas, 28(2), 451–464},
+  year = {2024},
+  eprint = {2207.01012}, archivePrefix = {arXiv}
+}</pre>
+      </li>
+      <li class="pub" data-t="c">
+        <div class="pub-title">Edge Computing-based Adaptive Machine Learning Model for Dynamic IoT Environment</div>
+        <div class="pub-authors"><b>Arif, M.</b>, &amp; Perera, D. G.</div>
+        <div class="pub-venue"><span class="venue-tag">IEEE ISCAS 2023</span> IEEE International Symposium on Circuits and Systems (ISCAS), pp. 1–5</div>
+        <div class="pub-links"><a href="https://scholar.google.com/scholar?q=Edge+Computing-based+Adaptive+Machine+Learning+Model+for+Dynamic+IoT+Environment" target="_blank" rel="noopener">Scholar</a> · <button class="bib-btn" type="button" aria-expanded="false">BibTeX</button></div>
+        <pre class="bib" hidden>@inproceedings{arif2023edge,
+  title = {Edge Computing-based Adaptive Machine Learning Model for Dynamic IoT Environment},
+  author = {Arif, M. and Perera, D. G.},
+  booktitle = {IEEE International Symposium on Circuits and Systems (ISCAS), pp. 1–5},
+  year = {2023}
+}</pre>
+      </li>
+      </ul>
+      <p class="more"><a href="publications.html">All publications →</a></p>
     </section>
 
-    <!-- ================= EXPERIENCE ================= -->
+    <section id="research">
+      <h2>Research interests</h2>
+      <ul class="interests">
+        <li><b>AI evaluation in real-world use:</b> frameworks and metrics for AI interventions in behavioral health, digital mental health and EdTech products.</li>
+        <li><b>Digital mental health and AI safety:</b> depression and suicidal-ideation detection, and risk detection and safety escalation in human–AI interaction for vulnerable users.</li>
+        <li><b>Measurement validation:</b> ontologies, annotation frameworks and inter-rater agreement for language-based measures.</li>
+        <li><b>Large language models:</b> benchmarks, LLM-as-judge evaluation, preference optimization and retrieval-augmented generation for clinical text.</li>
+        <li><b>Multimodal and explainable AI:</b> neuroimaging, EEG, images, audio and clinical reports, with SHAP and Grad-CAM explanations.</li>
+        <li><b>Multilingual and cross-cultural NLP:</b> mental health, social support, hope speech and misinformation across languages.</li>
+      </ul>
+    </section>
+
     <section id="experience">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <div class="sec-num">05 / EXPERIENCE</div>
-          <h2>Experience and education</h2>
-        </div>
-        <div class="timeline">
-          <div class="tl-item reveal">
-            <div class="tl-when">Apr 2026 – present</div>
-            <div>
-              <h3>Postdoctoral Associate</h3>
-              <div class="tl-org">Yale School of Medicine, Yale University</div>
-              <ul>
-                <li>Contributes to NIH grant development, with three proposals under review in digital mental health, AI safety and behavioral phenotyping.</li>
-                <li>Develops ML and LLM methods for the PVminer and EPPC-Care projects on secure patient–clinician messages.</li>
-                <li>Trains foundation and transformer models in PyTorch, applies preference optimization for structured extraction, and builds RAG-based LLM applications.</li>
-                <li>Analyzes real-world EHR data for preventive care, proactive mental healthcare and health equity research.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="tl-item reveal">
-            <div class="tl-when">Jun 2024 – Dec 2025</div>
-            <div>
-              <h3>Adjunct Professor</h3>
-              <div class="tl-org">Department of Computer Science, Colorado State University Pueblo</div>
-              <ul>
-                <li>Designed and taught six courses spanning programming, information systems, data analytics and networking.</li>
-                <li>Advised and mentored 20+ students on academic pathways, careers and internships.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="tl-item reveal">
-            <div class="tl-when">Jan 2024 – Aug 2024</div>
-            <div>
-              <h3>Research Intern</h3>
-              <div class="tl-org">The Pennsylvania State University, Abington</div>
-              <ul>
-                <li>Built deep learning and transfer learning models for mental illness classification on social media text; the resulting paper has 100+ citations.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="tl-item reveal">
-            <div class="tl-when">Jul 2022 – Apr 2024</div>
-            <div>
-              <h3>Research Scholar</h3>
-              <div class="tl-org">University of Colorado, Colorado Springs</div>
-              <ul>
-                <li>Developed adaptive machine learning models for edge computing in dynamic IoT environments (IEEE ISCAS 2023) and resource management for real-time distributed systems.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="tl-item reveal">
-            <div class="tl-when">2021 – 2025</div>
-            <div>
-              <h3>Ph.D. in Computer Science</h3>
-              <div class="tl-org">Centro de Investigación en Computación (CIC), Instituto Politécnico Nacional, Mexico City</div>
-              <ul>
-                <li>Thesis: Analyzing Cognitive Information for Multi-Class and Cross-Lingual Fake News Detection Using Deep Learning.</li>
-                <li>CGPA 10.00/10.00, with Distinction. CONACYT Mexican Government Scholarship.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="tl-item reveal">
-            <div class="tl-when">2018 – 2020</div>
-            <div>
-              <h3>Master of Engineering in Geographic Information Systems</h3>
-              <div class="tl-org">Wuhan University, China</div>
-              <ul>
-                <li>Thesis: Joint 2D–3D Feature for Indoor Semantic Segmentation of 3D Point Cloud. Best Student Award; Chinese Government Scholarship.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="tl-item reveal">
-            <div class="tl-when">2011 – 2015</div>
-            <div>
-              <h3>Bachelor of Science in Telecommunication</h3>
-              <div class="tl-org">Hazara University, Pakistan</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="two-col" style="margin-top:48px">
-          <div class="card reveal">
-            <h3>Service</h3>
-            <ul class="mini-list">
-              <li><span class="when">2027</span><span>Program Committee, AAAI-27 Undergraduate Consortium</span></li>
-              <li><span class="when">2026</span><span>Program Committee, IEEE ICDM 2026 Workshop on Data Mining in Biomedical Informatics and Healthcare</span></li>
-              <li><span class="when">2026</span><span>Reviewer, EMNLP 2026 and IEEE ICASSP</span></li>
-              <li><span class="when">2025 – 26</span><span>Reviewer, ICDCA and IEEE ICMI</span></li>
-              <li><span class="when">2021 – 25</span><span>Reviewer, Computación y Sistemas, Frontiers in AI, Journal of Intelligent &amp; Fuzzy Systems</span></li>
-            </ul>
-          </div>
-          <div class="card reveal">
-            <h3>Awards</h3>
-            <ul class="mini-list">
-              <li><span class="when">2025</span><span>Ph.D. with Distinction (CGPA 10.00/10.00), IPN, Mexico</span></li>
-              <li><span class="when">2021</span><span>CONACYT Mexican Government Scholarship for Ph.D. studies</span></li>
-              <li><span class="when">2020</span><span>Best Student Award, Wuhan University</span></li>
-              <li><span class="when">2018</span><span>Chinese Government Scholarship (CSC) for Master's studies</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <h2>Experience</h2>
+      <ul class="cv">
+        <li><span class="when">2026 – present</span><span><b>Postdoctoral Associate</b>, Yale School of Medicine</span></li>
+        <li><span class="when">2024 – 2025</span><span><b>Adjunct Professor</b>, Department of Computer Science, Colorado State University Pueblo</span></li>
+        <li><span class="when">2024</span><span><b>Research Intern</b>, The Pennsylvania State University, Abington</span></li>
+        <li><span class="when">2022 – 2024</span><span><b>Research Scholar</b>, University of Colorado, Colorado Springs</span></li>
+        <li><span class="when">2021 – 2025</span><span><b>Ph.D., Computer Science</b>, CIC, Instituto Politécnico Nacional, Mexico</span></li>
+        <li><span class="when">2018 – 2020</span><span><b>M.Eng., Geographic Information Systems</b>, Wuhan University, China</span></li>
+        <li><span class="when">2011 – 2015</span><span><b>B.Sc., Telecommunication</b>, Hazara University, Pakistan</span></li>
+      </ul>
     </section>
 
-    <!-- ================= TEACHING ================= -->
-    <section id="teaching" class="alt">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <div class="sec-num">06 / TEACHING</div>
-          <h2>Teaching and mentoring</h2>
-        </div>
-        <p class="reveal" style="max-width:44em;margin-bottom:24px">
-          As Adjunct Professor at Colorado State University Pueblo, I designed and was the sole
-          instructor for six courses, from first-year programming to a cross-listed graduate
-          course in advanced data analytics.
-        </p>
-        <div class="courses reveal">
-          <div class="course"><span class="term">Fall 2025</span><code>CIS 150</code><h4><a href="https://catalog.csupueblo.edu/course-description-information/cis/" target="_blank" rel="noopener">Introduction to Computer Information Systems</a></h4><p>Information systems fundamentals, databases and computing applications, through lectures and hands-on labs.</p></div>
-          <div class="course"><span class="term">Spring 2025</span><code>CIS 450 / 550</code><h4><a href="https://catalog.csupueblo.edu/course-description-information/cis/" target="_blank" rel="noopener">Advanced Data Analytics</a></h4><p>Lectures and applied labs for undergraduate and graduate students on advanced analytics, machine learning and real-world case studies.</p></div>
-          <div class="course"><span class="term">Spring 2025</span><code>CIS 250</code><h4><a href="https://catalog.csupueblo.edu/course-description-information/cis/" target="_blank" rel="noopener">Introduction to Business Analytics</a></h4><p>Data-driven decision making with analytics tools and business datasets.</p></div>
-          <div class="course"><span class="term">Spring 2025</span><code>CIS 120</code><h4><a href="https://catalog.csupueblo.edu/course-description-information/cis/" target="_blank" rel="noopener">Introduction to Programming with Python</a></h4><p>Core programming concepts, data structures and problem solving in Python.</p></div>
-          <div class="course"><span class="term">Fall 2024</span><code>CIS 240</code><h4><a href="https://catalog.csupueblo.edu/course-description-information/cis/" target="_blank" rel="noopener">System Analysis &amp; Design</a></h4><p>Requirements analysis, UML modeling and system design methodologies.</p></div>
-          <div class="course"><span class="term">Fall 2024</span><code>CIS 289</code><h4><a href="https://catalog.csupueblo.edu/course-description-information/cis/" target="_blank" rel="noopener">Networking Concepts</a></h4><p>Network architectures, protocols and introductory network security.</p></div>
-        </div>
-        <h3 class="reveal" style="font-family:var(--serif);font-size:1.3rem;margin-top:48px">Student research mentoring</h3>
-        <p class="reveal" style="color:var(--ink-soft);max-width:44em;margin-top:6px">
-          At Yale I mentor student research interns from conceptualization to manuscript
-          preparation. Current and recent interns come from:
-        </p>
-        <div class="mentor-list reveal">
-          <span class="tag">King Khalid University</span>
-          <span class="tag">IPN Mexico</span>
-          <span class="tag">ENSIA</span>
-          <span class="tag">Santa Clara University</span>
-          <span class="tag">LUMS</span>
-          <span class="tag">MBZUAI</span>
-          <span class="tag">ENISo</span>
-          <span class="tag">IIT Kharagpur</span>
-        </div>
-      </div>
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <p>Colorado State University Pueblo, all courses designed and taught as sole instructor:</p>
+      <ul class="cv">
+        <li><span class="when">Fall 2025</span><span><a href="https://catalog.csupueblo.edu/course-description-information/cis/" target="_blank" rel="noopener">CIS 150: Introduction to Computer Information Systems</a></span></li>
+        <li><span class="when">Spring 2025</span><span><a href="https://catalog.csupueblo.edu/course-description-information/cis/" target="_blank" rel="noopener">CIS 450/550: Advanced Data Analytics</a></span></li>
+        <li><span class="when">Spring 2025</span><span><a href="https://catalog.csupueblo.edu/course-description-information/cis/" target="_blank" rel="noopener">CIS 250: Introduction to Business Analytics</a></span></li>
+        <li><span class="when">Spring 2025</span><span><a href="https://catalog.csupueblo.edu/course-description-information/cis/" target="_blank" rel="noopener">CIS 120: Introduction to Programming with Python</a></span></li>
+        <li><span class="when">Fall 2024</span><span><a href="https://catalog.csupueblo.edu/course-description-information/cis/" target="_blank" rel="noopener">CIS 240: System Analysis &amp; Design</a></span></li>
+        <li><span class="when">Fall 2024</span><span><a href="https://catalog.csupueblo.edu/course-description-information/cis/" target="_blank" rel="noopener">CIS 289: Networking Concepts</a></span></li>
+      </ul>
+      <p>
+        <b>Mentoring.</b> At Yale I mentor student research interns from King Khalid University, IPN, ENSIA,
+        Santa Clara University, LUMS, MBZUAI, ENISo and IIT Kharagpur, from project design to manuscript.
+      </p>
     </section>
 
-    <!-- ================= CONTACT ================= -->
-    <section id="contact">
-      <div class="wrap">
-        <div class="contact-box reveal">
-          <div>
-            <h2>Let's work together.</h2>
-            <p>I welcome conversations about research collaborations, faculty and research positions, student mentoring, and invited talks on AI evaluation, digital mental health and clinical NLP.</p>
-          </div>
-          <div class="links">
-            <a href="mailto:arifmuhmmand@gmail.com">
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>arifmuhmmand@gmail.com</span>→
-            </a>
-            <a href="https://scholar.google.com/citations?user=NUbu-DoAAAAJ" target="_blank" rel="noopener">
-              <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6.8 9.6v3.6L12 20l6.8-3.8v-3.6L12 16.4l-6.8-3.8z"/></svg>Google Scholar</span>→
-            </a>
-            <a href="https://www.linkedin.com/in/muhammadarif1906" target="_blank" rel="noopener">
-              <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>LinkedIn</span>→
-            </a>
-            <a href="https://github.com/marif561" target="_blank" rel="noopener">
-              <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.3 4.4 18.3 4.7 18.3 4.7c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>GitHub</span>→
-            </a>
-            <a href="https://openreview.net/profile?id=~Muhammad_Arif2" target="_blank" rel="noopener me">
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>OpenReview</span>→
-            </a>
-            <a href="https://huggingface.co/HiArif2026" target="_blank" rel="noopener me">
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M8.5 14.5c1.8 2 5.2 2 7 0"/></svg>Hugging Face</span>→
-            </a>
-            <a href="https://x.com/arif_24561" target="_blank" rel="noopener me">
-              <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg>X (@arif_24561)</span>→
-            </a>
-            <a href="https://orcid.org/0000-0001-6141-0204" target="_blank" rel="noopener me">
-              <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22zM8.2 17.3H6.8V7.9h1.4v9.4zM7.5 6.9a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8zm3.1 10.4V7.9h3.6c3.4 0 4.9 2.4 4.9 4.7 0 2.5-2 4.7-4.9 4.7h-3.6zm1.4-1.3h2.1c2.6 0 3.5-1.9 3.5-3.4 0-2.4-1.5-3.4-3.6-3.4h-2v6.8z"/></svg>ORCID</span>→
-            </a>
-          </div>
-        </div>
-      </div>
+    <section>
+      <h2>Service and awards</h2>
+      <ul class="cv">
+        <li><span class="when">2027</span><span>Program Committee, AAAI-27 Undergraduate Consortium</span></li>
+        <li><span class="when">2026</span><span>Program Committee, IEEE ICDM 2026 Workshop on Data Mining in Biomedical Informatics and Healthcare</span></li>
+        <li><span class="when">2021 – 2026</span><span>Reviewer: EMNLP, ICASSP, IEEE ICMI, ICDCA, Computación y Sistemas, Frontiers in AI, Journal of Intelligent &amp; Fuzzy Systems</span></li>
+        <li><span class="when">2025</span><span>Ph.D. with Distinction (CGPA 10.00/10.00), IPN, Mexico</span></li>
+        <li><span class="when">2021</span><span>CONACYT Mexican Government Scholarship for doctoral studies</span></li>
+        <li><span class="when">2020</span><span>Best Student Award, Wuhan University</span></li>
+        <li><span class="when">2018</span><span>Chinese Government Scholarship (CSC)</span></li>
+      </ul>
     </section>
   </main>
-
   <footer>
-    <div class="wrap">
-      <span>© <span id="yr"></span> Muhammad Arif · New Haven, USA</span>
-      <a href="#top">Back to top ↑</a>
-    </div>
+    <span>© 2026 Muhammad Arif</span>
+    <span>Last updated November 2026</span>
   </footer>
-
-<script>
-    // ---- Theme ----
-    const root = document.documentElement;
-    const themeIcon = document.getElementById('themeIcon');
-    const moon = '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';
-    const sun = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
-    function setTheme(t) {
-      root.setAttribute('data-theme', t);
-      themeIcon.innerHTML = t === 'dark' ? sun : moon;
-      try { localStorage.setItem('theme', t); } catch (e) {}
-    }
-    let saved = null;
-    try { saved = localStorage.getItem('theme'); } catch (e) {}
-    setTheme(saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
-    document.getElementById('themeBtn').onclick = () =>
-      setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-
-    // ---- Mobile menu ----
-    const links = document.getElementById('navLinks');
-    document.getElementById('menuBtn').onclick = () => links.classList.toggle('open');
-    links.querySelectorAll('a').forEach(a => a.onclick = () => links.classList.remove('open'));
-
-    // ---- Nav border + active link ----
-    const nav = document.getElementById('nav');
-    const sections = [...document.querySelectorAll('section[id]')];
-    const navAs = [...links.querySelectorAll('a')];
-    addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', scrollY > 10);
-      let cur = '';
-      sections.forEach(s => { if (scrollY + 120 >= s.offsetTop) cur = s.id; });
-      navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
-    }, { passive: true });
-
-    // ---- Reveal + counters ----
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        e.target.classList.add('in');
-        e.target.querySelectorAll('[data-count]').forEach(el => {
-          const end = +el.dataset.count, t0 = performance.now(), dur = 1200;
-          const step = now => {
-            const p = Math.min((now - t0) / dur, 1);
-            el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
-            if (p < 1) requestAnimationFrame(step);
-          };
-          requestAnimationFrame(step);
-        });
-        io.unobserve(e.target);
+  <script>
+    (function () {
+      var root = document.documentElement, btn = document.getElementById("theme");
+      function cur() {
+        return root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      }
+      btn.addEventListener("click", function () {
+        var n = cur() === "dark" ? "light" : "dark";
+        root.dataset.theme = n;
+        try { localStorage.setItem("theme", n); } catch (e) {}
       });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    // ---- Project filter ----
-    document.querySelectorAll('.pchip').forEach(chip => chip.onclick = () => {
-      document.querySelectorAll('.pchip').forEach(c => c.classList.remove('on'));
-      chip.classList.add('on');
-      const f = chip.dataset.f;
-      document.querySelectorAll('.pub').forEach(p => p.classList.toggle('hide', f !== 'all' && p.dataset.t !== f));
-    });
-    document.querySelectorAll('.chip:not(.pchip)').forEach(chip => chip.onclick = () => {
-      document.querySelectorAll('.chip:not(.pchip)').forEach(c => c.classList.remove('on'));
-      chip.classList.add('on');
-      const f = chip.dataset.f;
-      document.querySelectorAll('.proj').forEach(p =>
-        p.classList.toggle('hide', f !== 'all' && !p.dataset.cat.split(' ').includes(f)));
-    });
-
-    document.getElementById('yr').textContent = new Date().getFullYear();
-
-    // ---- Hero network animation (subtle) ----
-    const cv = document.getElementById('net'), ctx = cv.getContext('2d');
-    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let pts = [], W, H;
-    function size() {
-      const r = cv.parentElement.getBoundingClientRect(), d = devicePixelRatio || 1;
-      W = r.width; H = r.height; cv.width = W * d; cv.height = H * d;
-      cv.style.width = W + 'px'; cv.style.height = H + 'px'; ctx.setTransform(d, 0, 0, d, 0, 0);
-      const n = Math.min(60, Math.floor(W * H / 16000));
-      pts = Array.from({ length: n }, () => ({
-        x: Math.random() * W, y: Math.random() * H,
-        vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25
-      }));
-    }
-    function draw() {
-      ctx.clearRect(0, 0, W, H);
-      const c = getComputedStyle(root).getPropertyValue('--accent').trim();
-      ctx.fillStyle = c; ctx.strokeStyle = c;
-      for (const p of pts) {
-        if (!reduce) { p.x += p.vx; p.y += p.vy; }
-        if (p.x < 0 || p.x > W) p.vx *= -1;
-        if (p.y < 0 || p.y > H) p.vy *= -1;
-      }
-      for (let i = 0; i < pts.length; i++) {
-        for (let j = i + 1; j < pts.length; j++) {
-          const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y, d = Math.hypot(dx, dy);
-          if (d < 130) {
-            ctx.globalAlpha = (1 - d / 130) * .18;
-            ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y); ctx.stroke();
-          }
-        }
-        ctx.globalAlpha = .35;
-        ctx.beginPath(); ctx.arc(pts[i].x, pts[i].y, 1.8, 0, 7); ctx.fill();
-      }
-      ctx.globalAlpha = 1;
-      if (!reduce) requestAnimationFrame(draw);
-    }
-    addEventListener('resize', size);
-    size(); draw();
+      document.querySelectorAll(".bib-btn").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var pre = b.closest(".pub").querySelector(".bib");
+          pre.hidden = !pre.hidden;
+          b.setAttribute("aria-expanded", String(!pre.hidden));
+        });
+      });
+      document.querySelectorAll(".filter button").forEach(function (b) {
+        b.addEventListener("click", function () {
+          document.querySelectorAll(".filter button").forEach(function (x) { x.classList.remove("on"); });
+          b.classList.add("on");
+          var f = b.dataset.f;
+          document.querySelectorAll(".pub").forEach(function (p) {
+            p.hidden = f !== "all" && p.dataset.t !== f;
+          });
+          document.querySelectorAll(".year-group").forEach(function (g) {
+            g.hidden = !g.querySelector(".pub:not([hidden])");
+          });
+        });
+      });
+    })();
   </script>
 </body>
 </html>
