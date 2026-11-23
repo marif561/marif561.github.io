@@ -149,3 +149,10 @@ footer {
 @media print {
   .topbar nav, .bib-btn, .filter { display: none; }
 }
+
+/* cv page */
+.cv-actions { display: flex; gap: 18px; align-items: center; margin: 18px 0; font-size: .95rem; }
+.btn-dl { background: var(--text); color: var(--bg); padding: 7px 14px; border-radius: 6px; font-weight: 500; }
+.btn-dl:hover { text-decoration: none; opacity: .9; }
+.cv-embed { width: 100%; height: 85vh; min-height: 600px; border: 1px solid var(--line); border-radius: 6px; background: var(--code-bg); }
+@media (max-width: 640px) { .cv-embed { height: 70vh; min-height: 420px; } }
