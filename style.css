@@ -53,13 +53,13 @@ b { font-weight: 600; }
 .theme svg { width: 16px; height: 16px; }
 
 /* profile header */
-.profile { display: grid; grid-template-columns: 168px 1fr; gap: 36px; align-items: start; margin-bottom: 36px; }
+.profile { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start; margin-bottom: 36px; }
 .portrait {
-  width: 168px; height: 168px; border-radius: 50%;
+  width: 220px; height: 220px; border-radius: 50%;
   background: linear-gradient(140deg, #0f4c81, #0a2a47); color: #fff;
   display: grid; place-items: center; font: 600 3.2rem var(--serif); letter-spacing: .02em;
 }
-img.portrait { object-fit: cover; display: block; background: var(--line); box-shadow: 0 0 0 1px var(--line); }
+img.portrait { object-fit: cover; display: block; background: var(--line); box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px var(--line), 0 6px 20px rgba(0,0,0,.12); }
 h1 { font-family: var(--serif); font-weight: 600; font-size: 2.35rem; line-height: 1.15; margin: 4px 0 6px; letter-spacing: -.01em; }
 .affil { margin: 0; font-size: 1.02rem; }
 .loc { margin: 0 0 14px; color: var(--muted); font-size: .95rem; }
@@ -138,7 +138,7 @@ footer {
   .topbar { margin-bottom: 32px; }
   .topbar nav { gap: 6px 14px; font-size: .88rem; flex-wrap: wrap; }
   .profile { grid-template-columns: 1fr; gap: 18px; }
-  .portrait { width: 120px; height: 120px; font-size: 2.3rem; }
+  .portrait { width: 170px; height: 170px; font-size: 2.3rem; }
   h1 { font-size: 2rem; }
   .links { grid-template-columns: 1fr 1fr; gap: 4px 16px; }
   .cv li { grid-template-columns: 1fr; gap: 0; }
